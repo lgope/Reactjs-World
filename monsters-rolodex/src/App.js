@@ -1,28 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-
-// Funtion Component
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           🙏 Edit <code>src/App.js</code> and save to reload. 🙋‍♂️
-//         </p>
-//         <af
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+import { CardList } from "./component/card-list/card-list.component";
 
 // Class Component
 class App extends Component {
@@ -43,9 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.monsters.map(monster => (
-          <h1 key={monster.id}>{monster.name}</h1>
-        ))}
+        <CardList monsters = {this.state.monsters} />
       </div>
     );
   }
