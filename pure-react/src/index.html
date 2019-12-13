@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pure React</title>
+</head>
+
+<body>
+    <div id="root">React not React</div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+
+    <script>
+        const Person = (props) => {
+            return React.createElement('div', {}, [
+                React.createElement('h1', {}, props.name),
+                React.createElement('p', {}, props.occupation)
+            ])
+        }
+
+        // class Component
+        class App extends React.Component {
+            render() {
+                return React.createElement('div', {},
+                    [React.createElement('h1', {}, 'REACT IS RENDERED!!!!'),
+                    React.createElement(Person, { name: 'Lakshman', occupation: 'Software Engineer' }),
+                    React.createElement(Person, { name: 'Raton', occupation: 'Developer' }),
+                    React.createElement(Person, { name: 'Emon', occupation: 'Analyst' })
+                    ]);
+            }
+        }
+
+        // Funtional Component
+        // const App = () => {
+        //     return React.createElement('div', {},
+        //         [React.createElement('h1', {}, 'REACT IS RENDERED!!!!'),
+        //         React.createElement(Person, { name: 'Lakshman', occupation: 'Software Engineer' }),
+        //         React.createElement(Person, { name: 'Raton', occupation: 'Developer' }),
+        //         React.createElement(Person, { name: 'Emon', occupation: 'Analyst' })
+        //         ]);
+        // };
+
+        ReactDOM.render(React.createElement(App), document.getElementById('root'))
+    </script>
+</body>
+
+</html>
