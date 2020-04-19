@@ -23,7 +23,11 @@ function App() {
     <div className='container mx-auto'>
       <ImageSearch searchText={(text) => setTerm(text)} />
 
-      {!isLoading && images.length === 0 && <h1 className='text-5xl text-center mx-auto mt-32'>No Images Found 😟. Try Diffenet! 🙂</h1>}
+      {!isLoading && images.length === 0 && (
+        <h1 className='text-5xl text-center mx-auto mt-32'>
+          No Images Found 😟. Try Diffenet! 🙂
+        </h1>
+      )}
       {isLoading ? (
         <h1 className='text-6xl text-center mx-auto mt-32'>Loading..</h1>
       ) : (
