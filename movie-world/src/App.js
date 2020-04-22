@@ -5,6 +5,7 @@ import keys from './config/keys';
 import Search from './components/Search';
 import Results from './components/Results';
 import Popup from './components/Popup';
+import FooterPage from './components/Footer.component';
 
 function App() {
   const [state, setState] = useState({
@@ -17,7 +18,7 @@ function App() {
   // const [results, setResults] = useState([""]);
   // const [selected, setSelected] = useState({});
 
-  const apiurl = `http://www.omdbapi.com/?apikey=${keys.omdb_api_key}`;
+  const apiurl = `https://www.omdbapi.com/?apikey=${keys.omdb_api_key}`;
 
   useEffect(() => {
     axios(`${apiurl}&s=${term}`).then(({ data }) => {
@@ -32,7 +33,6 @@ function App() {
       // });
     });
   }, [term]);
-
 
   const openPopup = (id) => {
     axios(`${apiurl}&i=${id}`).then(({ data }) => {
@@ -80,6 +80,13 @@ function App() {
           false
         )}
       </main>
+      {state.results ? (
+        <FooterPage />
+      ) : (
+        <div className='fixed-bottom'>
+          <FooterPage />
+        </div>
+      )}
     </div>
   );
 }

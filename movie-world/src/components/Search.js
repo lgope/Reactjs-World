@@ -11,7 +11,7 @@ function Search({ handleInput, searchText }) {
   return (
     <section className='searchbox-wrap'>
       <form onSubmit={onSubmit}>
-        <input
+        {/* <input
           type='text'
           placeholder='Search for a movie...'
           className='searchbox'
@@ -21,7 +21,21 @@ function Search({ handleInput, searchText }) {
         />
         <button className='' type='submit'>
           Search
-        </button>
+        </button> */}
+        <div className='input-group mb-3'>
+          <input
+            type='text'
+            className='form-control searchbox'
+            placeholder="Search for a movie..."
+            aria-describedby='basic-addon2'
+          onChange={(e) => setText(e.target.value)}
+          />
+          <div className='input-group-append'>
+            <button className='btn btn-outline-primary' type='submit'>
+              Search
+            </button>
+          </div>
+        </div>
       </form>
     </section>
   );
