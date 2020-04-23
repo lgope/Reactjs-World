@@ -89,12 +89,13 @@ section {
 }
 
 .popup {
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #445565;
+  background-color: #1d2727;
 
   overflow-y: scroll;
 }
@@ -145,7 +146,7 @@ section {
   font-size: 18px;
   font-weight: 700;
 
-  background: #4484c4;
+  background: #067df3;
   color: #fff;
   border-radius: 8px;
   border: none;

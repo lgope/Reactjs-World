@@ -31,7 +31,7 @@ function Search({ handleInput, searchText }) {
           onChange={(e) => setText(e.target.value)}
           />
           <div className='input-group-append'>
-            <button className='btn btn-outline-primary' type='submit'>
+            <button className='searchBtn btn btn-outline-primary' type='submit'>
               Search
             </button>
           </div>

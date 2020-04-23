@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import keys from './config/keys';
-import Search from './components/Search';
-import Results from './components/Results';
-import Popup from './components/Popup';
+import Search from './components/Search.component';
+import Results from './components/Results.component';
+import Popup from './components/Popup.component';
 import FooterPage from './components/Footer.component';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   });
 
   const [term, setTerm] = useState('avengers');
-  // const [results, setResults] = useState([""]);
+  // const [results, setResults] = useState([]);
   // const [selected, setSelected] = useState({});
 
   const apiurl = `https://www.omdbapi.com/?apikey=${keys.omdb_api_key}`;
@@ -38,7 +38,7 @@ function App() {
     axios(`${apiurl}&i=${id}`).then(({ data }) => {
       let result = data;
 
-      console.log(result);
+      // console.log(result);
 
       setState((prevState) => {
         return { ...prevState, selected: result };
