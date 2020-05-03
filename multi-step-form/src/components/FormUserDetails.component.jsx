@@ -21,26 +21,26 @@ export class FormUserDetails extends Component {
             onChange={handleChange('firstName')}
             defaultValue={values.firstName}
           />
-          <br/>
+          <br />
           <TextField
             hintText='Enter Your Last Name'
             floatingLabelText='Last Name'
             onChange={handleChange('lastName')}
             defaultValue={values.lastName}
           />
-          <br/>
+          <br />
           <TextField
             hintText='Enter Your Email'
             floatingLabelText='Email'
             onChange={handleChange('email')}
             defaultValue={values.email}
           />
-          <br/>
-          <RaisedButton 
-          label="Continue"
-          primary={true}
-          style={styles.button}
-          onClick={this.continue}
+          <br />
+          <RaisedButton
+            label='Continue'
+            primary={true}
+            style={styles.button}
+            onClick={this.continue}
           />
         </Fragment>
       </MuiThemeProvider>
@@ -49,9 +49,9 @@ export class FormUserDetails extends Component {
 }
 
 const styles = {
-    button: {
-        margin: 15
-    }
-}
+  button: {
+    margin: 15,
+  },
+};
 
 export default FormUserDetails;
