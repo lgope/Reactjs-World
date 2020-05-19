@@ -1,0 +1,27 @@
+{
+  "name": "inifite-image-scroll",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Lakshman Gope",
+  "license": "ISC",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "chalk": "^4.0.0",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "universal-config": "^0.3.0",
+    "unsplash-js": "^6.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

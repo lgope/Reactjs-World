@@ -1,8 +1,6 @@
 {
-  "manifest_version": 2,
   "short_name": "React App",
   "name": "Create React App Sample",
-  "version": "1.0.0",
   "icons": [
     {
       "src": "favicon.ico",
