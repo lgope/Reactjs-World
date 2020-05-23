@@ -1,0 +1,24 @@
+{
+  "name": "react-file-uploads",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev-server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "both": "concurrently \"npm run dev-server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Lakshman Gope",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
