@@ -6,10 +6,10 @@ const app = express();
 
 app.use(fileUpload());
 
-// Upload file route
-app.get('/upload', (req, res) => {
+// Upload Endpoint
+app.post('/upload', (req, res) => {
   if (req.files === null) {
-    return res.status(400).json({ message: 'No file uploaded' }); // bad request
+    return res.status(400).json({ msg: 'No file uploaded' });
   }
 
   const file = req.files.file;
@@ -17,13 +17,13 @@ app.get('/upload', (req, res) => {
   file.mv(`${__dirname}/client/public/uploads/${file.name}`, err => {
     if (err) {
       console.error(err);
-      return res.status(500).send(err); // server error
+      return res.status(500).send(err);
     }
 
-    res.json({
+    res.json({ 
       fileName: file.name,
-      filePath: `/uploads/${file.name}`,
-    });
+      filePath: `/uploads/${file.name}`
+     });
   });
 });
 

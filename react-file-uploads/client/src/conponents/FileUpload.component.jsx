@@ -23,16 +23,16 @@ const FileUpload = () => {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        onUploadProgress: progressEvent => {
-          setUploadPercentage(
-            parseInt(
-              Math.round((progressEvent.loaded * 100) / progressEvent.total)
-            )
-          );
+        // onUploadProgress: progressEvent => {
+        //   setUploadPercentage(
+        //     parseInt(
+        //       Math.round((progressEvent.loaded * 100) / progressEvent.total)
+        //     )
+        //   );
 
-          // Clearing percentage
-          setTimeout(() => setUploadPercentage(0), 10000);
-        },
+        //   // Clearing percentage
+        //   setTimeout(() => setUploadPercentage(0), 10000);
+        // },
       });
 
       const { fileName, filePath } = res.data;
