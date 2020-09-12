@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { actionTypes } from '../reducer';
 
-const Search = ({ hideButons = false }) => {
+const Search = ({ hideButtons = false }) => {
   const [{}, dispatch] = useStateValue();
 
   const [input, setInput] = useState('');
@@ -28,7 +28,7 @@ const Search = ({ hideButons = false }) => {
         <MicIcon />
       </div>
 
-      {!hideButons ? (
+      {!hideButtons ? (
         <div className='search_buttons'>
           <Button type='submit' onClick={search} variant='outlined'>
             Google Search
