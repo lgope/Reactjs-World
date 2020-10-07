@@ -20,7 +20,6 @@ export const showAlert = (type, msg) => {
   });
 };
 
-
 // import sample
 import { showAlert } from '../alert';
 showAlert('success', 'Updated Successfully!');
