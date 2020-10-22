@@ -3,6 +3,9 @@ export default function (state = initialState, action) {
     case actions.SAVE_TODAY_WORKS:
       return {
         userWorks: state.userWorks.concat(action.payload),
+        // add first index 👉 state.data.push(action.payload);
+        // add last index 👉 state.data.unshift(action.payload);
+        
       };
 
     case actions.GET:
