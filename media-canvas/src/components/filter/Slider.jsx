@@ -17,7 +17,7 @@ const Slider = ({ option, handleChange }) => (
       max={option.range.max}
       value={option.value}
       name={option.name}
-      onChange={event => handleChange(event)}
+      onChange={e => handleChange(e)}
     />
     {`${option.value}${option.unit}`}
   </div>

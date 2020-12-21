@@ -74,6 +74,7 @@ body {
 .selected-images {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start
 }
 
 /* image action button display styles */
@@ -100,27 +101,40 @@ body {
 
 /* middle drop field styles */
 .middle-drop-field {
-  display: block;
+  /* display: block; */
   /* margin-top: 20%;
   margin-left: auto;
   margin-right: auto; */
-  margin-top: 20%;
-  margin-left: 35%;
+  /* margin-top: 20%;
+  margin-left: 35%; */
   /* margin: auto; */
 }
-
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .app-container {
     flex-direction: column;
   }
 }
+.selected-images-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: scroll;
+}
+
+.selected-images-panel .middle-drop-field {
+  /* margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+}
 
 @media (max-width: 1100px) {
   .selected-images-panel {
     display: flex;
     flex-wrap: nowrap;
-    overflow: auto;
+    overflow: scroll;
   }
 
   .selected-images-panel::-webkit-scrollbar {
@@ -132,7 +146,7 @@ body {
   .selected-images-panel {
     display: flex;
     flex-wrap: nowrap;
-    overflow: auto;
+    overflow: scroll;
   }
 
   .selected-images-panel::-webkit-scrollbar {
@@ -143,6 +157,7 @@ body {
 /* image container styles */
 .image-container {
   position: relative;
+  height: 260px;
   max-width: 400px;
 }
 
@@ -151,8 +166,8 @@ body {
   visibility: hidden;
   display: flex;
   position: absolute;
-  top: 11%;
-  left: 19%;
+  top: 10%;
+  left: 15%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #555;
@@ -183,21 +198,21 @@ body {
 /* popup styles */
 .popup-menu {
   /* visibility: hidden; */
-  z-index: 100;
+  z-index: 1;
   position: absolute;
   padding: 3px;
   /* display: none; */
   width: 260px;
-  height: 270px;
+  height: 238px;
   /* margin: 3px; */
   background-color: #ffffff;
   border: 1px solid grey;
   border-radius: 10px;
-  top: 527%;
+  top: 472%;
   left: 194%;
   transform: translate(-50%, -50%);
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
   /* padding: 6px 14px; */
   border: none;
   /* cursor: pointer; */

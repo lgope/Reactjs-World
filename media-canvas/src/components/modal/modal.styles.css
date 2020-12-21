@@ -59,7 +59,7 @@
 
 .change-image-field{
   display: block;
-  margin-top: 26px;
+  margin-top: -11px;
 }
 
 .image-filter {
@@ -88,7 +88,7 @@
   max-height: 900px;
   max-width: 350px;
   width: 350px;
-  height: 827px;
+  height: 200px;
   flex-wrap: wrap;
   background-color: #ffffff;
   position: absolute;

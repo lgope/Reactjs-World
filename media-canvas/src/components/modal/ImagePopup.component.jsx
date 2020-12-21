@@ -36,7 +36,7 @@ class ImagePopup extends React.Component {
   // change filter options value
   async handleSliderChange(event) {
     await this.setState({
-      options: this.state.options.map((option) =>
+      options: this.state.options.map(option =>
         option.name === event.target.name
           ? { ...option, value: event.target.value }
           : option
@@ -50,77 +50,83 @@ class ImagePopup extends React.Component {
   render() {
     // if (!this.props.open) return null;
     return (
-      <div
-        className='popup-menu'
-        style={{ visibility: this.state.isOpen ? 'visible' : 'hidden' }}
-      >
-        <div className='modal-header-btn'>
-          <button
-            className='modal-image-btn'
-            onClick={() => this.isOptionChangedToggle()}
-          >
-            Image
-          </button>
+      <div>
+        <button className='settings-btn' onClick={() => this.toggle()}>
+          <img src={settingIcon} alt='settings' />
+        </button>
 
-          <button
-            className='modal-filter-btn'
-            onClick={() => this.isOptionChangedToggle()}
-          >
-            Filter
-          </button>
-
-          <button
-            className='modal-close-btn'
-            onClick={this.props.onClose()}
-            title='Close Modal'
-          >
-            X
-          </button>
-          <hr />
-        </div>
-
-        <div className='modal-layout'>
-          <div className='preview-image-filter'>
-            <img
-              className='preview-image'
-              src={this.props.image.img}
-              style={{ filter: this.props.getImageStyle(this.props.image) }}
-              alt=''
-            />
-          </div>
-
-          <div
-            className='change-image-field'
-            style={{
-              display: !this.state.isOptionChanged ? 'block' : 'none',
-            }}
-          >
+        <div
+          className='popup-menu'
+          style={{ visibility: this.state.isOpen ? 'visible' : 'hidden' }}
+        >
+          <div className='modal-header-btn'>
             <button
-              className='modal-change-img-btn'
-              onClick={() => this.setState({ isPopupOpen: true })}
+              className='modal-image-btn'
+              onClick={() => this.isOptionChangedToggle()}
             >
-              Change Image
+              Image
             </button>
 
-            <ImageListPopup
-              open={this.state.isPopupOpen}
-              onClose={() => this.setState({ isPopupOpen: false })}
-              currentImage={this.props.image}
-            />
+            <button
+              className='modal-filter-btn'
+              onClick={() => this.isOptionChangedToggle()}
+            >
+              Filter
+            </button>
+
+            <button
+              className='modal-close-btn'
+              onClick={() => this.toggle()}
+              title='Close Modal'
+            >
+              X
+            </button>
+            <hr />
           </div>
 
-          <div
-            className='change-image-field'
-            style={{ display: this.state.isOptionChanged ? 'block' : 'none' }}
-          >
-            {/* slider input */}
-            {this.state.options.map(option => (
-              <Slider
-                key={option.id}
-                option={option}
-                handleChange={this.handleSliderChange.bind(this)}
+          <div className='modal-layout'>
+            <div className='preview-image-filter'>
+              <img
+                className='preview-image'
+                src={this.props.image.img}
+                style={{ filter: this.props.getImageStyle(this.props.image) }}
+                alt=''
               />
-            ))}
+            </div>
+
+            <div
+              className='change-image-field'
+              style={{
+                display: !this.state.isOptionChanged ? 'block' : 'none',
+              }}
+            >
+              <button
+                className='modal-change-img-btn'
+                onClick={() => this.setState({ isPopupOpen: true })}
+              >
+                Change Image
+              </button>
+
+              <ImageListPopup
+                open={this.state.isPopupOpen}
+                onClose={() => this.setState({ isPopupOpen: false })}
+                currentImage={this.props.image}
+              />
+            </div>
+
+            <div
+              className='change-image-field'
+              style={{ display: this.state.isOptionChanged ? 'block' : 'none' }}
+            >
+              {/* slider input */}
+              {this.state.options.map(option => (
+                <Slider
+                  key={option.id}
+                  option={option}
+                  handleChange={this.handleSliderChange.bind(this)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
