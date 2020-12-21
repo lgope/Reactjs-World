@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactDom from 'react-dom';
+
+import Popup from './Popup.component';
 // import './modal.styles.css';
 
 // redux stuff
@@ -35,36 +37,37 @@ const IMAGE_LIST_STYLES = {
   overflow: 'scroll',
 };
 
-// test
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref, imageSate, closeFunc) {
-  useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event) {
-      console.log('1');
-      if (ref.current && ref.current.contains(event.target)) {
-        // alert('You clicked outside of me!');
-        imageSate(null);
-        closeFunc();
-      }
-    }
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
-}
+// function useOutsideAlerter(ref, imageSate, closeFunc) {
+//   useEffect(() => {
+//     /**
+//      * Alert if clicked on outside of element
+//      */
+//     function handleClickOutside(event) {
+//       console.log('1');
+//       if (ref.current && ref.current.contains(event.target)) {
+//         // alert('You clicked outside of me!');
+//         imageSate(null);
+//         closeFunc();
+//       }
+//     }
+//     // Bind the event listener
+//     document.addEventListener('mousedown', handleClickOutside);
+//     return () => {
+//       // Unbind the event listener on clean up
+//       document.removeEventListener('mousedown', handleClickOutside);
+//     };
+//   }, [ref]);
+// }
 
 const ImageListPopup = props => {
   const wrapperRef = useRef(null);
   const [newImage, setNewImage] = useState(null);
-  useOutsideAlerter(wrapperRef, setNewImage, props.onClose);
+
+  // passing ref and setstate function for clear state and onclose function for fire on outside click
+  // useOutsideAlerter(wrapperRef, setNewImage, props.onClose);
 
   const handleConfirm = () => {
     if (newImage) {
@@ -79,43 +82,47 @@ const ImageListPopup = props => {
     setNewImage(null);
     props.onClose();
   };
+  console.log('helloooowww');
   // console.log('newi ', newImage);
   const { open } = props;
   if (!open) return null;
   return ReactDom.createPortal(
-    <div>
-      <div ref={wrapperRef} style={OVERLAY_STYLES} />
-      <div style={MODAL_STYLES}>
-        {/* <div className='image-list-modal'> */}
-        <div className=''>
-          <p>Select an image</p>
+    <div style={OVERLAY_STYLES}>
+        {/* <div ref={wrapperRef} style={OVERLAY_STYLES} /> */}
+        <Popup setState={setNewImage} onClose={props.onClose}>
+        {/* <div style={OVERLAY_STYLES} /> */}
+        <div style={MODAL_STYLES}>
+          {/* <div className='image-list-modal'> */}
+          <div className=''>
+            <p>Select an image</p>
 
-          <div style={IMAGE_LIST_STYLES}>
-            {props.images &&
-              props.images.map(image => (
-                <input
-                  key={image.char_id}
-                  className='images selectedimage'
-                  type='image'
-                  src={image.img}
-                  alt={image.name}
-                  onClick={() => setNewImage(image)}
-                />
-              ))}
-          </div>
+            <div style={IMAGE_LIST_STYLES}>
+              {props.images &&
+                props.images.map(image => (
+                  <input
+                    key={image.char_id}
+                    className='images selectedimage'
+                    type='image'
+                    src={image.img}
+                    alt={image.name}
+                    onClick={() => setNewImage(image)}
+                  />
+                ))}
+            </div>
 
-          <div className='imagelist-modal-actionBtn'>
-            <button className='img-confirm-btn' onClick={handleConfirm}>
-              Confirm
-            </button>
-            {/* should clear state */}
-            <button className='img-cancel-btn' onClick={handleCancel}>
-              Cancel
-            </button>
+            <div className='imagelist-modal-actionBtn'>
+              <button className='img-confirm-btn' onClick={handleConfirm}>
+                Confirm
+              </button>
+              {/* should clear state */}
+              <button className='img-cancel-btn' onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>,
+    </Popup>
+      </div>,
     document.getElementById('portal')
   );
 };
