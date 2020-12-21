@@ -1,0 +1,26 @@
+{
+  "name": "media-canvas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "immutability-helper": "^2.9.1",
+    "lodash.flow": "^3.5.0",
+    "react": "^16.14.0",
+    "react-dnd": "^4.0.5",
+    "react-dnd-html5-backend": "^4.0.6",
+    "react-dom": "^16.14.0",
+    "react-redux": "^7.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

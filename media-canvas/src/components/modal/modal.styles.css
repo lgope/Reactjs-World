@@ -1,0 +1,145 @@
+/* .modal-header-btn {
+  border-bottom-style: solid;
+  border-width: thin;
+} */
+
+.modal-layout {
+  margin: 0%;
+  padding: 0%;
+}
+
+.modal-image-btn,
+.modal-filter-btn,
+.modal-change-img-btn,
+.modal-close-btn {
+  border: none;
+  outline-style: none;
+  padding: 4px;
+  width: 78px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.modal-change-img-btn {
+  margin-top: 12px;
+  width: 170px;
+  color: #03d3fc;
+}
+
+.modal-close-btn {
+  background-color: #ffffff;
+  outline-style: none;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: red;
+  /* line-height: 12px; */
+  width: 18px;
+  /* font-size: 8pt; */
+  /* font-family: tahoma; */
+  margin-top: 3px;
+  margin-right: 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.modal-image-btn:hover,
+.modal-filter-btn:hover,
+.modal-close-btn:hover,
+.modal-change-img-btn:hover {
+  background-color: bisque;
+}
+
+.preview-image {
+  height: 129px;
+  width: 150px;
+}
+
+.image-filter {
+  display: flex;
+  flex-wrap: nowrap;
+
+  margin: auto;
+
+  width: 80%;
+}
+
+.filter-options {
+  margin-left: 10px;
+}
+
+.filter-options button {
+  margin: 2px;
+  /* padding: 2px; */
+}
+
+/* image list modal styles */
+.image-list-modal {
+  z-index: 1;
+  margin: 4px;
+  padding: 2px;
+  max-height: 900px;
+  max-width: 350px;
+  width: 350px;
+  height: 827px;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  position: absolute;
+  border: 1px solid grey;
+  border-radius: 10px;
+  top: 144%;
+  left: -117%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 28px 41px;
+}
+
+.image-lists {
+  display: grid;
+  max-height: 85%;
+  overflow: scroll;
+}
+
+.image-lists::-webkit-scrollbar {
+  display: none;
+}
+
+/* change image popup btn styles */
+.imagelist-modal-actionBtn {
+  text-align: center;
+  justify-content: center;
+}
+.img-confirm-btn,
+.img-cancel-btn {
+  margin: 10px 10px;
+  padding: 10px 24px;
+  border-radius: 5px;
+  border: none;
+}
+
+.img-confirm-btn {
+  background-color: #03d3fc;
+}
+.img-cancel-btn {
+  /* float: right; */
+  background-color: rgb(238, 238, 238);
+}
+
+.img-confirm-btn:hover,
+.img-cancel-btn:hover {
+  background-color: antiquewhite;
+}
+
+/* .selectedimage:focus{
+  border-color: blue;
+  outline-style: none;
+} */
+
+
+.selectedimage:focus { 
+  outline: none !important;
+  /* border-color: #719ECE; */
+  border: 3px solid #03d3fc;
+}

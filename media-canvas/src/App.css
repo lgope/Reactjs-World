@@ -1,0 +1,208 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #e5e5e5;
+}
+
+/* app container style */
+.app-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* media panel style */
+.media-panel {
+  padding: 10px;
+  flex: 20%;
+
+  width: 340px;
+  height: 980px;
+  left: 0px;
+  top: 0px;
+
+  background: #ffffff;
+
+  overflow: scroll;
+}
+
+/* hide scroll bar */
+.media-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* media panel text styles */
+.media-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  margin-left: -227px;
+  color: #000;
+}
+
+/* global image style */
+.images {
+  width: 333px;
+  height: 250px;
+  margin: 3px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+/* selected image panel styles  */
+.selected-images-panel {
+  padding: 10px;
+  flex: 80%;
+  width: 1160px;
+  height: 820px;
+  left: 390px;
+  top: 50px;
+  margin: 60px;
+
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+/* selected image display styles */
+.selected-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* image action button display styles */
+.image-action-btn {
+  bottom: 8px;
+  left: 16px;
+}
+
+/* image drop field styles */
+.drop-field {
+  width: 333px;
+  height: 250px;
+  margin: 3px;
+  min-height: 200px;
+  border: 2px dotted grey;
+  border-radius: 10px;
+}
+/* image drop field all p tag styles */
+.drop-field p {
+  font-size: medium;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .app-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1100px) {
+  .selected-images-panel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+
+  .selected-images-panel::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .selected-images-panel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+
+  .selected-images-panel::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* image container styles */
+.image-container {
+  position: relative;
+  max-width: 400px;
+}
+
+/* image action buttons styles */
+.image-container .action-btn {
+  visibility: hidden;
+  display: flex;
+  position: absolute;
+  top: 11%;
+  left: 19%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 6px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* image action button icon styles */
+.image-container .action-btn .settings-btn,
+.remove-btn {
+  font-size: medium;
+  border: none;
+  background-color: #555;
+  color: white;
+}
+
+/* image action button hover effect */
+.image-container:hover .action-btn {
+  visibility: visible;
+  color: aqua;
+}
+
+/* popup styles */
+.popup-menu {
+  /* visibility: hidden; */
+  z-index: 1;
+  position: absolute;
+  padding: 3px;
+  /* display: none; */
+  width: 260px;
+  height: 215px;
+  /* margin: 3px; */
+  background-color: #ffffff;
+  border: 1px solid grey;
+  border-radius: 10px;
+  top: 425%;
+  left: 194%;
+  transform: translate(-50%, -50%);
+  /* -ms-transform: translate(-50%, -50%); */
+  color: #000;
+  font-size: 16px;
+  /* padding: 6px 14px; */
+  border: none;
+  /* cursor: pointer; */
+  border-radius: 15px;
+  /* text-align: center; */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 28px 41px;
+}
+
+/* .action-btn > .update_btn:hover + div.popup-menu { */
+/* .image-container .action-btn .update-btn:hover .image-container .popup-menu { */
+.action-btn:hover + .popup-menu {
+  visibility: visible;
+  z-index: 200;
+  /* position: absolute; */
+}
+
+/* div.information_popup_container > div.information:hover + div.popup_information {
+  visibility: visible;
+  z-index: 200;
+  } */

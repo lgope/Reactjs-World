@@ -1,0 +1,51 @@
+.sidebar {
+    grid-area: sidebar;
+    background-color: hsl(265, 100%, 86%);
+    border-left: 1px solid hsl(265, 100%, 56%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sidebar-item {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: hsl(0, 0%, 99%);
+    /* padding: 1rem; */
+    border-radius: 5px;
+    position: relative;
+    transition: background-color 150ms;
+  }
+  
+  .sidebar-item:hover, .sidebar-item:focus {
+    background-color: hsl(263, 9%, 72%);
+  }
+  
+  .sidebar-item.active {
+    background-color: hsl(155, 74%, 75%);
+  }
+  
+  .sidebar-item::after {
+    content: '';
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    height: 1px;
+    background-color: hsl(265, 100%, 46%);
+  }
+  
+  .sidebar-item:last-child::after {
+    display: none;
+  }
+  
+  .slider-container {
+    grid-area: slider;
+    /* margin-top: 1rem;
+    padding: 1rem; */
+  }
+  
+  .slider {
+    width: 50%;
+    cursor: pointer;
+  }
