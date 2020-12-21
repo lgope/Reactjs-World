@@ -39,7 +39,7 @@ const IMAGE_LIST_STYLES = {
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref) {
+function useOutsideAlerter(ref, imageSate, closeFunc) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -47,7 +47,9 @@ function useOutsideAlerter(ref) {
     function handleClickOutside(event) {
       console.log('1');
       if (ref.current && ref.current.contains(event.target)) {
-        alert('You clicked outside of me!');
+        // alert('You clicked outside of me!');
+        imageSate(null);
+        closeFunc();
       }
     }
     // Bind the event listener
@@ -61,8 +63,8 @@ function useOutsideAlerter(ref) {
 
 const ImageListPopup = props => {
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef);
   const [newImage, setNewImage] = useState(null);
+  useOutsideAlerter(wrapperRef, setNewImage, props.onClose);
 
   const handleConfirm = () => {
     if (newImage) {
@@ -73,11 +75,12 @@ const ImageListPopup = props => {
     return alert('Please select an image!');
   };
 
-  // handleCancel() {
-  //  return setState({newImage: null});
-  // }
+  const handleCancel = () => {
+    setNewImage(null);
+    props.onClose();
+  };
   // console.log('newi ', newImage);
-  const { open, onClose } = props;
+  const { open } = props;
   if (!open) return null;
   return ReactDom.createPortal(
     <div>
@@ -106,7 +109,7 @@ const ImageListPopup = props => {
               Confirm
             </button>
             {/* should clear state */}
-            <button className='img-cancel-btn' onClick={onClose}>
+            <button className='img-cancel-btn' onClick={handleCancel}>
               Cancel
             </button>
           </div>

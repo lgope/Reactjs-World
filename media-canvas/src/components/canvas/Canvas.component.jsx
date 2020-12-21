@@ -85,6 +85,7 @@ const Canvas = props => {
         </div>
       )}
 
+      {/* showing drop field in middle of the canvas */}
       {selectedImages && selectedImages.length < 1 && (
         <div
           className='middle-drop-field'
