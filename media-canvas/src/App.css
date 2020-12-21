@@ -168,6 +168,7 @@ body {
   position: relative;
   height: 260px;
   max-width: 400px;
+  margin-bottom: 8px;
 }
 
 /* image action buttons styles */
@@ -211,14 +212,14 @@ body {
   position: absolute;
   padding: 3px;
   /* display: none; */
-  width: 260px;
-  height: 238px;
+  width: 228px;
+  height: 218px;
   /* margin: 3px; */
   background-color: #ffffff;
   border: 1px solid grey;
   border-radius: 10px;
-  top: 472%;
-  left: 194%;
+  top: 405%;
+  left: 227%;
   transform: translate(-50%, -50%);
   color: #000;
   font-size: 14px;

@@ -1,55 +1,135 @@
 .sidebar {
-    grid-area: sidebar;
-    background-color: hsl(265, 100%, 86%);
-    border-left: 1px solid hsl(265, 100%, 56%);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .sidebar-item {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background-color: hsl(0, 0%, 99%);
-    /* padding: 1rem; */
-    border-radius: 5px;
-    position: relative;
-    transition: background-color 150ms;
-  }
-  
-  .sidebar-item:hover, .sidebar-item:focus {
-    background-color: hsl(263, 9%, 72%);
-  }
-  
-  .sidebar-item.active {
-    background-color: hsl(155, 74%, 75%);
-  }
-  
-  .sidebar-item::after {
-    content: '';
-    position: absolute;
-    left: 10%;
-    bottom: 0;
-    height: 1px;
-    background-color: hsl(265, 100%, 46%);
-  }
-  
-  .sidebar-item:last-child::after {
-    display: none;
-  }
-  
-  .slider-container {
-    grid-area: slider;
-    /* margin-top: 1rem;
-    padding: 1rem; */
-  }
+  grid-area: sidebar;
+  background-color: hsl(265, 100%, 86%);
+  border-left: 1px solid hsl(265, 100%, 56%);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
 
-  .slider-container img {
-    margin: 0 10px;
-  }
-  
-  .slider {
-    width: 120px;
-    cursor: pointer;
-  }
+.sidebar-item {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: hsl(0, 0%, 99%);
+  /* padding: 1rem; */
+  border-radius: 5px;
+  position: relative;
+  transition: background-color 150ms;
+}
+
+.sidebar-item:hover,
+.sidebar-item:focus {
+  background-color: hsl(263, 9%, 72%);
+}
+
+.sidebar-item.active {
+  background-color: hsl(155, 74%, 75%);
+}
+
+.sidebar-item::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  height: 1px;
+  background-color: hsl(265, 100%, 46%);
+}
+
+.sidebar-item:last-child::after {
+  display: none;
+}
+
+.slider-container {
+  grid-area: slider;
+  /* margin-top: 1rem;
+    padding: 1rem; */
+}
+
+.slider-container img {
+  margin: 0 10px;
+}
+
+
+
+/* input range styles stuff here */
+.range {
+  -webkit-appearance: none;
+  vertical-align: middle;
+  outline: 0;
+  border: none;
+  padding: 0;
+  background: 0 0;
+}
+.range::-webkit-slider-runnable-track {
+  background-color: #afafaf;
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+.range[disabled]::-webkit-slider-runnable-track {
+  border: 1px solid #afafaf;
+  background-color: transparent;
+  opacity: 0.4;
+}
+.range::-moz-range-track {
+  background-color: #afafaf;
+  height: 6px;
+  border-radius: 3px;
+  border: none;
+}
+.range::-ms-track {
+  color: transparent;
+  border: none;
+  background: 0 0;
+  height: 6px;
+}
+.range::-ms-fill-lower {
+  background-color: #afafaf;
+  border-radius: 3px;
+}
+.range::-ms-fill-upper {
+  background-color: #afafaf;
+  border-radius: 3px;
+}
+.range::-ms-tooltip {
+  display: none;
+}
+.range::-moz-range-thumb {
+  border-radius: 20px;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #afafaf;
+  background: 0 0;
+  background-color: #fff;
+}
+.range:active::-moz-range-thumb {
+  outline: 0;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  border-radius: 100%;
+  border: 2px solid #afafaf;
+  background-color: #fff;
+  height: 18px;
+  width: 18px;
+  margin-top: -7px;
+}
+.range[disabled]::-webkit-slider-thumb {
+  background-color: transparent;
+  border: 1px solid #afafaf;
+}
+.range:active::-webkit-slider-thumb {
+  outline: 0;
+}
+.range::-ms-thumb {
+  border-radius: 100%;
+  border: 2px solid #afafaf;
+  background-color: #fff;
+  height: 18px;
+  width: 18px;
+  border: none;
+}
+.range:active::-ms-thumb {
+  border: none;
+}

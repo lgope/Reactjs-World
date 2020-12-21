@@ -1,4 +1,7 @@
 import React from 'react';
+import './filter.styles.css';
+
+// icons
 import saturation from '../../asstes/saturation.png';
 import blur from '../../asstes/blur-option.png';
 import brightness from '../../asstes/brightnessIcon.png';
@@ -12,11 +15,12 @@ const Slider = ({ option, handleChange }) => (
     <img src={icons[option.id]} alt={option.name} />
     <input
       type='range'
-      className='slider'
+      className='range'
       min={option.range.min}
       max={option.range.max}
       value={option.value}
       name={option.name}
+      step={1}
       onChange={e => handleChange(e)}
     />
     {`${option.value}${option.unit}`}

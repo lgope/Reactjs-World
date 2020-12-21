@@ -37,38 +37,11 @@ const IMAGE_LIST_STYLES = {
   overflow: 'scroll',
 };
 
-/**
- * Hook that alerts clicks outside of the passed ref
- */
-// function useOutsideAlerter(ref, imageSate, closeFunc) {
-//   useEffect(() => {
-//     /**
-//      * Alert if clicked on outside of element
-//      */
-//     function handleClickOutside(event) {
-//       console.log('1');
-//       if (ref.current && ref.current.contains(event.target)) {
-//         // alert('You clicked outside of me!');
-//         imageSate(null);
-//         closeFunc();
-//       }
-//     }
-//     // Bind the event listener
-//     document.addEventListener('mousedown', handleClickOutside);
-//     return () => {
-//       // Unbind the event listener on clean up
-//       document.removeEventListener('mousedown', handleClickOutside);
-//     };
-//   }, [ref]);
-// }
 
 const ImageListPopup = props => {
-  const wrapperRef = useRef(null);
   const [newImage, setNewImage] = useState(null);
 
-  // passing ref and setstate function for clear state and onclose function for fire on outside click
-  // useOutsideAlerter(wrapperRef, setNewImage, props.onClose);
-
+  
   const handleConfirm = () => {
     if (newImage) {
       props.changeImage(props.currentImage, newImage);
@@ -89,7 +62,7 @@ const ImageListPopup = props => {
   return ReactDom.createPortal(
     <div style={OVERLAY_STYLES}>
         {/* <div ref={wrapperRef} style={OVERLAY_STYLES} /> */}
-        <Popup setState={setNewImage} onClose={props.onClose}>
+        <Popup onClose={props.onClose}>
         {/* <div style={OVERLAY_STYLES} /> */}
         <div style={MODAL_STYLES}>
           {/* <div className='image-list-modal'> */}

@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref, imageSate, closeFunc) {
+function useOutsideAlerter(ref, closeFunc) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -12,7 +12,6 @@ function useOutsideAlerter(ref, imageSate, closeFunc) {
       console.log('1');
       if (ref.current && !ref.current.contains(event.target)) {
         // alert('You clicked outside of me!');
-        imageSate(null);
         closeFunc();
       }
     }
@@ -25,11 +24,12 @@ function useOutsideAlerter(ref, imageSate, closeFunc) {
   }, [ref]);
 }
 
-const Popup = ({setState, onClose, children }) => {
+const Popup = ({onClose, children }) => {
   const wrapperRef = useRef(null);
 
   // passing ref and setstate function for clear state and onclose function for fire on outside click
-  useOutsideAlerter(wrapperRef, setState, onClose);
+
+  useOutsideAlerter(wrapperRef, onClose);
 
   return <div ref={wrapperRef}>{children}</div>;
 };

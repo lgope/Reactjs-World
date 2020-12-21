@@ -24,6 +24,7 @@ function collect(connect, monitor) {
 const Canvas = props => {
   const [isImageOptionPopupOpen, setIsImageOptionPopupOpen] = useState(false);
   const [popupImage, setpopupImage] = useState({});
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   const {
     connectDropTarget,
@@ -35,8 +36,7 @@ const Canvas = props => {
   const backgroundColor = hovered ? 'lightgreen' : 'white';
   const visibility = selectedImages.length === 12 ? 'hidden' : 'visible';
 
-  const handleSettingsBtn = (e, image) => {
-    console.log('hiiiiiiiiiiiiii ', image);
+  const handleSettingsBtn = (image) => {
     setpopupImage(image);
     setIsImageOptionPopupOpen(!isImageOptionPopupOpen);
   };
@@ -56,7 +56,7 @@ const Canvas = props => {
               {/* setting icon and popup modal */}
               {/* <button
                   className='remove-btn'
-                  onClick={(e) => handleSettingsBtn(e, image)}
+                  onClick={() => handleSettingsBtn(image)}
                   title='Settings'
                 >
                   <FontAwesomeIcon icon={faCog} />
@@ -66,12 +66,15 @@ const Canvas = props => {
                 className='remove-btn'
                 onClick={() => deleteImageFromCanvas(image.char_id)}
                 title='Remove'
-              >
+                >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>
           </div>
         ))}
+
+
+        {/* <ImagePopup image={popupImage} open={true} /> */}
 
       {/* image drop field */}
       {selectedImages && selectedImages.length > 0 && (
