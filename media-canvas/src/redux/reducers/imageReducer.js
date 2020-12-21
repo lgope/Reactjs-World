@@ -10,7 +10,7 @@ const initialState = {
   isLoading: false,
 };
 
-export default function testFunc(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actions.GET_IMAGES:
       return {
@@ -30,11 +30,14 @@ export default function testFunc(state = initialState, action) {
       // checking total length
       // checking already image exits or not
       // then adding the image
-      if (state.selectedImages.length > 11) {
-        alert('Limit is over!');
-        return state;
-      } else if (state.selectedImages.some(img => img.img === image.img)) {
-        alert('Already added this image. Please try different');
+
+      // if (state.selectedImages.length > 11) {
+      //   alert('Limit is 12.');
+      //   return state;
+      // } else
+
+      if (state.selectedImages.some(img => img.img === image.img)) {
+        alert('Already added this image. Please try different!');
         return state;
       } else {
         // updating the localstorage
@@ -56,9 +59,9 @@ export default function testFunc(state = initialState, action) {
 
       images = images.filter(image => image.char_id !== action.payload);
 
+      // updating local storage
       localStorage.setItem('selectedImages', JSON.stringify(images));
 
-      //   this.setState({ selectedImages: images });
       return {
         ...state,
         selectedImages: images,
@@ -111,7 +114,10 @@ export default function testFunc(state = initialState, action) {
 
     // change image from selected canvas image
     case actions.CHANGE_IMAGE:
+      // adding new key filter options
       action.newImage.filter = DEFAULT_OPTIONS;
+
+      // replacing the old image by new image
       const changedCanvasImages = state.selectedImages.map(image =>
         image.img === action.currentImage.img ? { ...action.newImage } : image
       );
@@ -132,6 +138,7 @@ export default function testFunc(state = initialState, action) {
         ...state,
         isLoading: true,
       };
+
     default:
       return state;
   }

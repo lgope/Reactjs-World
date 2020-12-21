@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DropTarget } from 'react-dnd';
-import imageIcon from '../../asstes/image_icon.png';
-import CanvasImage from './CanvasImage.component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import ImagePopup from '../modal/ImagePopup.component';
+// icons
+import imageIcon from '../../asstes/image_icon.png';
+import deleteIcon from '../../asstes/delete.png';
+
+// components
+import CanvasImage from './CanvasImage.component';
+import ImagePopup from '../popup/ImagePopup.component';
 
 // redux stuff
 import { compose } from 'redux';
@@ -13,7 +15,6 @@ import { connect } from 'react-redux';
 import { deleteImageFromCanvas } from '../../redux/actions/imageActions';
 
 function collect(connect, monitor) {
-  console.log('image ', monitor.getItem());
   return {
     connectDropTarget: connect.dropTarget(),
     hovered: monitor.isOver(),
@@ -21,25 +22,14 @@ function collect(connect, monitor) {
   };
 }
 
-const Canvas = props => {
-  const [isImageOptionPopupOpen, setIsImageOptionPopupOpen] = useState(false);
-  const [popupImage, setpopupImage] = useState({});
-  const [isOpenPopup, setIsOpenPopup] = useState(false);
-
-  const {
-    connectDropTarget,
-    hovered,
-    selectedImages,
-    deleteImageFromCanvas,
-  } = props;
-
+const Canvas = ({
+  connectDropTarget,
+  hovered,
+  selectedImages,
+  deleteImageFromCanvas,
+}) => {
   const backgroundColor = hovered ? 'lightgreen' : 'white';
   const visibility = selectedImages.length === 12 ? 'hidden' : 'visible';
-
-  const handleSettingsBtn = (image) => {
-    setpopupImage(image);
-    setIsImageOptionPopupOpen(!isImageOptionPopupOpen);
-  };
 
   return connectDropTarget(
     <div className='selected-images'>
@@ -54,31 +44,22 @@ const Canvas = props => {
             />
             <div className='action-btn'>
               {/* setting icon and popup modal */}
-              {/* <button
-                  className='remove-btn'
-                  onClick={() => handleSettingsBtn(image)}
-                  title='Settings'
-                >
-                  <FontAwesomeIcon icon={faCog} />
-                </button> */}
               <ImagePopup image={image} index={i} />|{' '}
               <button
                 className='remove-btn'
                 onClick={() => deleteImageFromCanvas(image.char_id)}
                 title='Remove'
-                >
-                <FontAwesomeIcon icon={faTrash} />
+              >
+                {/* <FontAwesomeIcon icon={faTrash} /> */}
+                <img src={deleteIcon} alt='trash' />
               </button>
             </div>
           </div>
         ))}
 
-
-        {/* <ImagePopup image={popupImage} open={true} /> */}
-
       {/* image drop field */}
       {selectedImages && selectedImages.length > 0 && (
-        <div className='drop-field' style={{ backgroundColor, visibility }}>
+        <div className='drop-field' style={{ backgroundColor }}>
           <img
             src={imageIcon}
             alt='greenField'
@@ -99,7 +80,7 @@ const Canvas = props => {
             alt='greenField'
             style={{ paddingTop: '30px', marginTop: '30px' }}
           />
-          <p>Drop an image from Media Panel1</p>
+          <p>Drop an image from Media Panel</p>
         </div>
       )}
     </div>

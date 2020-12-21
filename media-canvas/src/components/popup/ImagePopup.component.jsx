@@ -1,7 +1,7 @@
 import React from 'react';
-import settingIcon from '../../asstes/settingss.png';
 import './modal.styles.css';
 
+// copmonents
 import Popup from './Popup.component';
 import ImageListPopup from './ImageListPopup.component';
 
@@ -9,31 +9,11 @@ import ImageListPopup from './ImageListPopup.component';
 import { connect } from 'react-redux';
 import { filterImage, getImageStyle } from '../../redux/actions/imageActions';
 
-// filter stuff
+// filter option stuff
 import Slider from '../filter/Slider';
 
-const MODAL_STYLES = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
-  padding: '10px',
-  height: '80%',
-  maxWidth: '350px',
-  borderRadius: '5px',
-  zIndex: 1000,
-};
-
-const OVERLAY_STYLES = {
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, .7)',
-  zIndex: 1000,
-};
+// icons
+import settingIcon from '../../asstes/settingss.png';
 
 class ImagePopup extends React.Component {
   state = {
@@ -72,15 +52,15 @@ class ImagePopup extends React.Component {
   }
 
   render() {
-    // if (!this.props.open) return null;
-
     console.log('iiimmmsmsm ', this.props.image);
 
     return (
       <div>
-        <button className='settings-btn' onClick={() => this.toggle()}>
+        <button className='settings-btn' onClick={() => this.toggle()} title="Settings">
           <img src={settingIcon} alt='settings' />
         </button>
+
+        {/* popup detect outside click and close the popover */}
         <Popup onClose={() => this.setState({ isOpen: false })}>
           <div
             className='popup-menu'

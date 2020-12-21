@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
 import Popup from './Popup.component';
@@ -37,11 +37,9 @@ const IMAGE_LIST_STYLES = {
   overflow: 'scroll',
 };
 
-
 const ImageListPopup = props => {
   const [newImage, setNewImage] = useState(null);
 
-  
   const handleConfirm = () => {
     if (newImage) {
       props.changeImage(props.currentImage, newImage);
@@ -61,11 +59,9 @@ const ImageListPopup = props => {
   if (!open) return null;
   return ReactDom.createPortal(
     <div style={OVERLAY_STYLES}>
-        {/* <div ref={wrapperRef} style={OVERLAY_STYLES} /> */}
-        <Popup onClose={props.onClose}>
-        {/* <div style={OVERLAY_STYLES} /> */}
+      {/* popup detect outside click and close the popover */}
+      <Popup onClose={handleCancel}>
         <div style={MODAL_STYLES}>
-          {/* <div className='image-list-modal'> */}
           <div className=''>
             <p>Select an image</p>
 
@@ -94,8 +90,8 @@ const ImageListPopup = props => {
             </div>
           </div>
         </div>
-    </Popup>
-      </div>,
+      </Popup>
+    </div>,
     document.getElementById('portal')
   );
 };

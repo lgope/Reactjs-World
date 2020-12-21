@@ -7,7 +7,7 @@ import MediaPanel from '../components/MediaPanel.component';
 import { connect } from 'react-redux';
 import { getImages } from '../redux/actions/imageActions';
 
-const Home = ({getImages, images}) => {
+const Home = ({ getImages, images }) => {
   // api call => fetching image
   useEffect(() => {
     getImages();
@@ -17,10 +17,11 @@ const Home = ({getImages, images}) => {
     <div className='app-container'>
       <div className='media-panel'>
         <p className='media-text'>Media Panel</p>
-        {images ?
-          images.map(image => (
-            <MediaPanel key={image.char_id} image={image} />
-          )): <h4>Loading...</h4>}
+        {images ? (
+          images.map(image => <MediaPanel key={image.char_id} image={image} />)
+        ) : (
+          <h4>Loading...</h4>
+        )}
       </div>
 
       {/* selected image panel */}

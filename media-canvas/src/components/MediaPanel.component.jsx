@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { addImageToCanvas } from '../redux/actions/imageActions';
 
+// drag functionality
 const imageSource = {
   beginDrag(props) {
     console.log('dragging');

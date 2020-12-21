@@ -1,5 +1,5 @@
 import React from 'react';
-import './filter.styles.css';
+import './slider.styles.css';
 
 // icons
 import saturation from '../../asstes/saturation.png';
@@ -23,8 +23,8 @@ const Slider = ({ option, handleChange }) => (
       step={1}
       onChange={e => handleChange(e)}
     />
-    {`${option.value}${option.unit}`}
+    <span>{`${option.value}${option.unit}`}</span>
   </div>
 );
-// TODO: Detect mouse out side click
+
 export default Slider;

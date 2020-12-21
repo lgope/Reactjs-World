@@ -11,7 +11,6 @@ function useOutsideAlerter(ref, closeFunc) {
     function handleClickOutside(event) {
       console.log('1');
       if (ref.current && !ref.current.contains(event.target)) {
-        // alert('You clicked outside of me!');
         closeFunc();
       }
     }
@@ -24,11 +23,10 @@ function useOutsideAlerter(ref, closeFunc) {
   }, [ref]);
 }
 
-const Popup = ({onClose, children }) => {
+const Popup = ({ onClose, children }) => {
   const wrapperRef = useRef(null);
 
   // passing ref and setstate function for clear state and onclose function for fire on outside click
-
   useOutsideAlerter(wrapperRef, onClose);
 
   return <div ref={wrapperRef}>{children}</div>;
