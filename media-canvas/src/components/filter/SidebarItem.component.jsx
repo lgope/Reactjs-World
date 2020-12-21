@@ -6,13 +6,13 @@ import brightness from '../../asstes/brightnessIcon.png';
 import contrast from '../../asstes/contrast.png';
 
 const icons = [saturation, blur, brightness, contrast];
-const SidebarItem = (props) => (
+const SidebarItem = ({active, option, handleClick}) => (
   <button
-    className={`sidebar-item ${props.active ? 'active' : ''}`}
-    onClick={() => props.handleClick()}
+    className={`sidebar-item ${active ? 'active' : ''}`}
+    onClick={() => handleClick()}
+    title={option.name}
   >
-    {/* {this.props.name} */}
-    <img src={icons[props.option.id]} alt={props.option.name} />
+    <img src={icons[option.id]} alt={option.name} />
   </button>
 );
 

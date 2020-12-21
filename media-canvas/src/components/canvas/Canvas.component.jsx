@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DropTarget } from 'react-dnd';
 import imageIcon from '../../asstes/image_icon.png';
 import CanvasImage from './CanvasImage.component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import Modal from '../modal/Modal.component';
+import ImagePopup from '../modal/ImagePopup.component';
 
 // redux stuff
 import { compose } from 'redux';
@@ -22,6 +22,8 @@ function collect(connect, monitor) {
 }
 
 const Canvas = props => {
+  const [isImageOptionPopupOpen, setIsImageOptionPopupOpen] = useState(false);
+
   const {
     connectDropTarget,
     hovered,
@@ -40,13 +42,26 @@ const Canvas = props => {
             <div className='image-container' key={image.char_id}>
               <CanvasImage
                 key={image.char_id}
-                index=  {i}
+                index={i}
                 id={image.char_id}
                 image={image}
               />
               <div className='action-btn'>
                 {/* setting icon and popup modal */}
-                <Modal image={image} index={i} /> |{' '}
+                <button
+                  className='remove-btn'
+                  onClick={() => setIsImageOptionPopupOpen(true)}
+                  title='Settings'
+                >
+                  <FontAwesomeIcon icon={faCog} />
+                </button>
+                <ImagePopup
+                  open={isImageOptionPopupOpen}
+                  onClose={() => setIsImageOptionPopupOpen(false)}
+                  image={image}
+                  index={i}
+                />
+                |{' '}
                 <button
                   className='remove-btn'
                   onClick={() => deleteImageFromCanvas(image.char_id)}
@@ -59,14 +74,30 @@ const Canvas = props => {
           ))}
 
         {/* image drop field */}
-        <div className='drop-field' style={{ backgroundColor, visibility }}>
-          <img
-            src={imageIcon}
-            alt='greenField'
-            style={{ paddingTop: '30px', marginTop: '30px' }}
-          />
-          <p>Drop an image from Media Panel</p>
-        </div>
+        {selectedImages && selectedImages.length > 0 && (
+          <div className='drop-field' style={{ backgroundColor, visibility }}>
+            <img
+              src={imageIcon}
+              alt='greenField'
+              style={{ paddingTop: '30px', marginTop: '30px' }}
+            />
+            <p>Drop an image from Media Panel</p>
+          </div>
+        )}
+
+        {selectedImages && selectedImages.length === 0 && (
+          <div
+            className='middle-drop-field'
+            style={{ backgroundColor, visibility }}
+          >
+            <img
+              src={imageIcon}
+              alt='greenField'
+              style={{ paddingTop: '30px', marginTop: '30px' }}
+            />
+            <p>Drop an image from Media Panel</p>
+          </div>
+        )}
       </div>
     </div>
   );

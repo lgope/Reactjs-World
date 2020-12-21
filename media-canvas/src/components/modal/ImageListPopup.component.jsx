@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactDom from 'react-dom';
 // import './modal.styles.css';
 
@@ -35,7 +35,33 @@ const IMAGE_LIST_STYLES = {
   overflow: 'scroll',
 };
 
+// test
+/**
+ * Hook that alerts clicks outside of the passed ref
+ */
+function useOutsideAlerter(ref) {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      console.log('1');
+      if (ref.current && ref.current.contains(event.target)) {
+        alert('You clicked outside of me!');
+      }
+    }
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
+}
+
 const ImageListPopup = props => {
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
   const [newImage, setNewImage] = useState(null);
 
   const handleConfirm = () => {
@@ -50,12 +76,12 @@ const ImageListPopup = props => {
   // handleCancel() {
   //  return setState({newImage: null});
   // }
-  console.log('newi ', newImage);
+  // console.log('newi ', newImage);
   const { open, onClose } = props;
   if (!open) return null;
   return ReactDom.createPortal(
     <div>
-      <div style={OVERLAY_STYLES} />
+      <div ref={wrapperRef} style={OVERLAY_STYLES} />
       <div style={MODAL_STYLES}>
         {/* <div className='image-list-modal'> */}
         <div className=''>

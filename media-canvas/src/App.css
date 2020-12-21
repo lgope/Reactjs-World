@@ -83,7 +83,8 @@ body {
 }
 
 /* image drop field styles */
-.drop-field {
+.drop-field,
+.middle-drop-field {
   width: 333px;
   height: 250px;
   margin: 3px;
@@ -92,8 +93,20 @@ body {
   border-radius: 10px;
 }
 /* image drop field all p tag styles */
-.drop-field p {
+.drop-field p,
+.middle-drop-field p {
   font-size: medium;
+}
+
+/* middle drop field styles */
+.middle-drop-field {
+  display: block;
+  /* margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto; */
+  margin-top: 20%;
+  margin-left: 35%;
+  /* margin: auto; */
 }
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */
@@ -170,20 +183,19 @@ body {
 /* popup styles */
 .popup-menu {
   /* visibility: hidden; */
-  z-index: 1;
+  z-index: 100;
   position: absolute;
   padding: 3px;
   /* display: none; */
   width: 260px;
-  height: 215px;
+  height: 270px;
   /* margin: 3px; */
   background-color: #ffffff;
   border: 1px solid grey;
   border-radius: 10px;
-  top: 425%;
+  top: 527%;
   left: 194%;
   transform: translate(-50%, -50%);
-  /* -ms-transform: translate(-50%, -50%); */
   color: #000;
   font-size: 16px;
   /* padding: 6px 14px; */

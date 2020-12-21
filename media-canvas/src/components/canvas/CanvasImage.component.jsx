@@ -7,7 +7,7 @@ import flow from 'lodash/flow';
 // redux stuff
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { updateNewOrder } from '../../redux/actions/imageActions';
+import { updateNewOrder, getImageStyle } from '../../redux/actions/imageActions';
 
 const imageSource = {
   beginDrag(props) {
@@ -74,16 +74,6 @@ class CanvasImage extends React.Component {
     id: PropTypes.any.isRequired,
   };
 
-  getImageStyle() {
-    const filters = this.props.image.filter.map(option => {
-      return `${option.property}(${option.value}${option.unit})`;
-    });
-
-    console.log('ff11 ', filters.join(' '));
-
-    return filters.join(' ');
-  }
-
   render() {
     const {
       image,
@@ -92,7 +82,6 @@ class CanvasImage extends React.Component {
       connectDropTarget,
     } = this.props;
     const opacity = isDragging ? 0 : 1;
-    // console.log('img ', this.props.imgUrl);
 
     return (
       connectDragSource &&
@@ -104,8 +93,7 @@ class CanvasImage extends React.Component {
               src={image.img}
               alt={image.name}
               style={{
-                filter: this.getImageStyle(),
-                // filter:'saturate(114%) blur(3px) brightness(100%) contrast(179%)',
+                filter: this.props.getImageStyle(image),
                 opacity,
                 width: '333px',
                 height: '250px',
@@ -120,7 +108,7 @@ class CanvasImage extends React.Component {
 }
 
 export default compose(
-  connect(null, { updateNewOrder }),
+  connect(null, { updateNewOrder, getImageStyle }),
   flow(
     DragSource('card', imageSource, (connect, monitor) => ({
       connectDragSource: connect.dragSource(),

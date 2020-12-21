@@ -44,8 +44,12 @@
     /* margin-top: 1rem;
     padding: 1rem; */
   }
+
+  .slider-container img {
+    margin: 0 10px;
+  }
   
   .slider {
-    width: 50%;
+    width: 120px;
     cursor: pointer;
   }

@@ -30,7 +30,7 @@ export default function testFunc(state = initialState, action) {
       // checking total length
       // checking already image exits or not
       // then adding the image
-      if (state.selectedImages.length > 12) {
+      if (state.selectedImages.length > 11) {
         alert('Limit is over!');
         return state;
       } else if (state.selectedImages.some(img => img.img === image.img)) {

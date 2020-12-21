@@ -51,6 +51,14 @@ export const changeImage = (currentImage, newImage) => dispatch => {
   });
 };
 
+export const getImageStyle = currentImage => dispatch => {
+  const filters = currentImage.filter.map(option => {
+    return `${option.property}(${option.value}${option.unit})`;
+  });
+
+  return filters.join(' ');
+};
+
 export function setImagesLoading() {
   return {
     type: actions.IMAGES_LOADING,

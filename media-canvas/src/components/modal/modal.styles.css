@@ -54,6 +54,12 @@
 .preview-image {
   height: 129px;
   width: 150px;
+  border-radius: 5px;
+}
+
+.change-image-field{
+  display: block;
+  margin-top: 26px;
 }
 
 .image-filter {
