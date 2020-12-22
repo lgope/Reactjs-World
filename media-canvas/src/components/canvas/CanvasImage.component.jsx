@@ -89,8 +89,8 @@ class CanvasImage extends React.Component {
     const IMAGE_STYLES = {
       filter: this.props.getImageStyle(image),
       opacity,
-      width: '333px',
-      height: '250px',
+      width: '100%',
+      height: '100%',
       borderRadius: '10px',
     };
 
@@ -100,6 +100,7 @@ class CanvasImage extends React.Component {
       connectDragSource(
         connectDropTarget(
           <div className='images'>
+            {/* <img src={image.img} alt={image.name} style={IMAGE_STYLES} /> */}
             <img src={image.img} alt={image.name} style={IMAGE_STYLES} />
           </div>
         )

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
+// styles
+import './popup.styles.css'
+
 // popup detect out side click
 import Popup from './Popup.component';
 
@@ -15,7 +18,7 @@ const MODAL_STYLES = {
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#FFF',
   padding: '10px',
-  height: '80%',
+  height: 'auto',
   maxWidth: '350px',
   borderRadius: '5px',
   zIndex: 1000,
@@ -61,7 +64,8 @@ const ImageListPopup = props => {
       {/* popup detect outside click and close the popover */}
       <Popup onClose={handleCancel}>
         <div style={MODAL_STYLES}>
-          <div className=''>
+        {/* <div className="popup-img-list-modal-styles"> */}
+          {/* <div className=''> */}
             <p>Select an image</p>
 
             <div style={IMAGE_LIST_STYLES}>
@@ -87,7 +91,7 @@ const ImageListPopup = props => {
                 Cancel
               </button>
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </Popup>
     </div>,

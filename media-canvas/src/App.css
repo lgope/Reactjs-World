@@ -42,13 +42,13 @@ body {
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
-  margin-left: -227px;
+  text-align: left;
   color: #000;
 }
 
 /* global image style */
 .images {
-  width: 333px;
+  width: 90%;
   height: 250px;
   margin: 3px;
   border: 1px solid grey;
@@ -158,9 +158,20 @@ body {
 .image-container {
   position: relative;
   height: 260px;
-  max-width: 400px;
-  margin-bottom: 8px;
+  max-width: 25%;
+  margin-bottom: 14px;
 }
+
+@media (max-width: 1024px) {
+  
+  .image-container {
+    position: relative;
+    height: 260px;
+    max-width: 50%;
+    margin-bottom: 14px;
+  }
+}
+
 
 /* image action buttons styles */
 .image-container .action-btn {
