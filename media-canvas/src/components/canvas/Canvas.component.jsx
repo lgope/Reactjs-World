@@ -22,70 +22,71 @@ function collect(connect, monitor) {
   };
 }
 
-const Canvas = ({
-  connectDropTarget,
-  hovered,
-  selectedImages,
-  deleteImageFromCanvas,
-}) => {
-  const backgroundColor = hovered ? 'lightgreen' : 'white';
-  const visibility = selectedImages.length === 12 ? 'hidden' : 'visible';
+const Canvas = React.forwardRef(
+  (
+    { connectDropTarget, hovered, selectedImages, deleteImageFromCanvas },
+    ref
+  ) => {
+    const backgroundColor = hovered ? 'lightgreen' : 'white';
+    const visibility = selectedImages.length === 12 ? 'hidden' : 'visible';
 
-  return connectDropTarget(
-    <div className='selected-images'>
-      {selectedImages &&
-        selectedImages.map((image, i) => (
-          <div className='image-container' key={image.char_id}>
-            <CanvasImage
-              key={image.char_id}
-              index={i}
-              id={image.char_id}
-              image={image}
-            />
-            <div className='action-btn'>
-              {/* setting icon and popup */}
-              <ImagePopup image={image} index={i} />|{' '}
-              <button
-                className='remove-btn'
-                onClick={() => deleteImageFromCanvas(image.char_id)}
-                title='Remove'
-              >
-                {/* <FontAwesomeIcon icon={faTrash} /> */}
-                <img src={deleteIcon} alt='trash' />
-              </button>
+    return connectDropTarget(
+      <div className='selected-images'>
+        {selectedImages &&
+          selectedImages.map((image, i) => (
+            <div className='image-container' key={image.char_id}>
+              <CanvasImage
+                innerRef={ref}
+                key={image.char_id}
+                index={i}
+                id={image.char_id}
+                image={image}
+              />
+              <div className='action-btn'>
+                {/* setting icon and popup */}
+                <ImagePopup image={image} index={i} />|{' '}
+                <button
+                  className='remove-btn'
+                  onClick={() => deleteImageFromCanvas(image.char_id)}
+                  title='Remove'
+                >
+                  {/* <FontAwesomeIcon icon={faTrash} /> */}
+                  <img src={deleteIcon} alt='trash' />
+                </button>
+              </div>
             </div>
+          ))}
+
+        {/* image drop field */}
+        {selectedImages && selectedImages.length > 0 && (
+          <div className='drop-field' style={{ backgroundColor }}>
+            <img
+              src={imageIcon}
+              alt='greenField'
+              style={{ paddingTop: '30px', marginTop: '30px' }}
+            />
+            <p>Drop an image from Media Panel</p>
           </div>
-        ))}
+        )}
 
-      {/* image drop field */}
-      {selectedImages && selectedImages.length > 0 && (
-        <div className='drop-field' style={{ backgroundColor }}>
-          <img
-            src={imageIcon}
-            alt='greenField'
-            style={{ paddingTop: '30px', marginTop: '30px' }}
-          />
-          <p>Drop an image from Media Panel</p>
-        </div>
-      )}
-
-      {/* showing drop field in middle of the canvas */}
-      {selectedImages && selectedImages.length < 1 && (
-        <div
-          className='middle-drop-field'
-          style={{ backgroundColor, visibility }}
-        >
-          <img
-            src={imageIcon}
-            alt='greenField'
-            style={{ paddingTop: '30px', marginTop: '30px' }}
-          />
-          <p>Drop an image from Media Panel</p>
-        </div>
-      )}
-    </div>
-  );
-};
+        {/* showing drop field in middle of the canvas */}
+        {selectedImages && selectedImages.length < 1 && (
+          <div
+            className='middle-drop-field'
+            style={{ backgroundColor, visibility }}
+          >
+            <img
+              src={imageIcon}
+              alt='greenField'
+              style={{ paddingTop: '30px', marginTop: '30px' }}
+            />
+            <p>Drop an image from Media Panel</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 const mapStateToProps = state => ({
   selectedImages: state.images.selectedImages,

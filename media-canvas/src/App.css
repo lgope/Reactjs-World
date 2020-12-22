@@ -192,23 +192,10 @@ body {
 
 @media (max-width: 1440px) {
   .image-container .action-btn {
-    /* visibility: hidden;
-    display: -ms-flexbox;
-    display: flex;
-    position: absolute; */
     top: 11%;
     left: 22%;
-    /* -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555; */
     color: white;
     font-size: 17px;
-    /* padding: 6px 9px;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-    text-align: center; */
   }
 }
 

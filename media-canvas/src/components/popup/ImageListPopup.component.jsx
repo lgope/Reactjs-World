@@ -64,8 +64,6 @@ const ImageListPopup = props => {
       {/* popup detect outside click and close the popover */}
       <Popup onClose={handleCancel}>
         <div style={MODAL_STYLES}>
-        {/* <div className="popup-img-list-modal-styles"> */}
-          {/* <div className=''> */}
             <p>Select an image</p>
 
             <div style={IMAGE_LIST_STYLES}>
@@ -91,7 +89,6 @@ const ImageListPopup = props => {
                 Cancel
               </button>
             </div>
-          {/* </div> */}
         </div>
       </Popup>
     </div>,

@@ -21,7 +21,7 @@ const Slider = ({ option, handleChange }) => (
       value={option.value}
       name={option.name}
       step={1}
-      onChange={e => handleChange(e)}
+      onChange={handleChange}
     />
     <span>{`${option.value}${option.unit}`}</span>
   </div>
