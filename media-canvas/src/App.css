@@ -163,7 +163,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  
   .image-container {
     position: relative;
     height: 260px;
@@ -171,7 +170,6 @@ body {
     margin-bottom: 14px;
   }
 }
-
 
 /* image action buttons styles */
 .image-container .action-btn {
@@ -192,6 +190,28 @@ body {
   text-align: center;
 }
 
+@media (max-width: 1440px) {
+  .image-container .action-btn {
+    /* visibility: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute; */
+    top: 11%;
+    left: 22%;
+    /* -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555; */
+    color: white;
+    font-size: 17px;
+    /* padding: 6px 9px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center; */
+  }
+}
+
 /* image action button icon styles */
 .image-container .action-btn .settings-btn,
 .remove-btn {
@@ -205,24 +225,4 @@ body {
 .image-container:hover .action-btn {
   visibility: visible;
   color: aqua;
-}
-
-/* popup styles */
-.popup-menu {
-  z-index: 1;
-  position: absolute;
-  padding: 3px;
-  width: 228px;
-  height: 218px;
-  background-color: #ffffff;
-  border: 1px solid grey;
-  border-radius: 10px;
-  top: 405%;
-  left: 227%;
-  transform: translate(-50%, -50%);
-  color: #000;
-  font-size: 14px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 28px 41px;
 }

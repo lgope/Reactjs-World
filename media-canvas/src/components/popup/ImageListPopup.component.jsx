@@ -18,8 +18,8 @@ const MODAL_STYLES = {
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#FFF',
   padding: '10px',
-  height: 'auto',
-  maxWidth: '350px',
+  height: '90%',
+  maxWidth: '20%',
   borderRadius: '5px',
   zIndex: 1000,
 };
@@ -35,8 +35,8 @@ const OVERLAY_STYLES = {
 };
 
 const IMAGE_LIST_STYLES = {
-  height: '699px',
-  maxHeight: '700px',
+  height: '85%',
+  maxHeight: '90%',
   overflow: 'scroll',
 };
 
@@ -73,7 +73,7 @@ const ImageListPopup = props => {
                 props.images.map(image => (
                   <input
                     key={image.char_id}
-                    className='images selectedimage'
+                    className='popup-image'
                     type='image'
                     src={image.img}
                     alt={image.name}
