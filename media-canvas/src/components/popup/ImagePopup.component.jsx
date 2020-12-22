@@ -1,5 +1,5 @@
 import React from 'react';
-import './modal.styles.css';
+import './popup.styles.css';
 
 // copmonents
 import Popup from './Popup.component';

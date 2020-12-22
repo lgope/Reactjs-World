@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+
 // components
 import Canvas from '../components/canvas/Canvas.component';
 import MediaPanel from '../components/MediaPanel.component';
 
-// redux staff
+// redux stuff
 import { connect } from 'react-redux';
 import { getImages } from '../redux/actions/imageActions';
 
@@ -17,7 +18,7 @@ const Home = ({ getImages, images }) => {
     <div className='app-container'>
       <div className='media-panel'>
         <p className='media-text'>Media Panel</p>
-        {images ? (
+        {images.length ? (
           images.map(image => <MediaPanel key={image.char_id} image={image} />)
         ) : (
           <h4>Loading...</h4>
@@ -37,4 +38,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { getImages })(Home);
-// export default Home;

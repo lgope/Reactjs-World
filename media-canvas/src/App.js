@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import HTML5Backend from 'react-dnd-html5-backend';
+// react dnd
 import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-import { Provider } from 'react-redux';
+// redux stuff
 import store from './redux/store';
+import { Provider } from 'react-redux';
 
 // pages
 import Home from './pages/Home.page';

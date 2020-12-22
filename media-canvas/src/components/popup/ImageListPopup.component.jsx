@@ -53,8 +53,7 @@ const ImageListPopup = props => {
     setNewImage(null);
     props.onClose();
   };
-  console.log('helloooowww');
-  // console.log('newi ', newImage);
+  
   const { open } = props;
   if (!open) return null;
   return ReactDom.createPortal(

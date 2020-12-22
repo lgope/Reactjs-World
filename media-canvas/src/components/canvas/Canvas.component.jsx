@@ -95,3 +95,5 @@ export default compose(
   connect(mapStateToProps, { deleteImageFromCanvas }),
   DropTarget('image', {}, collect)
 )(Canvas);
+
+// TODO: image and filter click active only clicked part

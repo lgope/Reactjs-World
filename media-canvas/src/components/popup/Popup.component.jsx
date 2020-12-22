@@ -26,7 +26,7 @@ function useOutsideAlerter(ref, closeFunc) {
 const Popup = ({ onClose, children }) => {
   const wrapperRef = useRef(null);
 
-  // passing ref and setstate function for clear state and onclose function for fire on outside click
+  // passing ref and onclose function for fire on outside click
   useOutsideAlerter(wrapperRef, onClose);
 
   return <div ref={wrapperRef}>{children}</div>;

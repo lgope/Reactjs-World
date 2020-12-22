@@ -7,7 +7,10 @@ import flow from 'lodash/flow';
 // redux stuff
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { updateNewOrder, getImageStyle } from '../../redux/actions/imageActions';
+import {
+  updateNewOrder,
+  getImageStyle,
+} from '../../redux/actions/imageActions';
 
 const imageSource = {
   beginDrag(props) {
@@ -81,7 +84,15 @@ class CanvasImage extends React.Component {
       connectDragSource,
       connectDropTarget,
     } = this.props;
-    const opacity = isDragging ? 0 : 1;
+    const opacity = isDragging ? 0 : 2;
+
+    const IMAGE_STYLES = {
+          filter: this.props.getImageStyle(image),
+          opacity,
+          width: '333px',
+          height: '250px',
+          borderRadius: '10px',
+        };
 
     return (
       connectDragSource &&
@@ -92,13 +103,7 @@ class CanvasImage extends React.Component {
             <img
               src={image.img}
               alt={image.name}
-              style={{
-                filter: this.props.getImageStyle(image),
-                opacity,
-                width: '333px',
-                height: '250px',
-                borderRadius: '10px',
-              }}
+              style={IMAGE_STYLES}
             />
           </div>
         )
