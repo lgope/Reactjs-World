@@ -43,7 +43,7 @@ const Canvas = ({
               image={image}
             />
             <div className='action-btn'>
-              {/* setting icon and popup modal */}
+              {/* setting icon and popup */}
               <ImagePopup image={image} index={i} />|{' '}
               <button
                 className='remove-btn'

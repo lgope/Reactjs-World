@@ -23,7 +23,7 @@ class ImagePopup extends React.Component {
     options: this.props.image.filter,
     isPopupOpen: false,
   };
-  // show or hide popup modal
+  // show or hide popup popup
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -52,11 +52,13 @@ class ImagePopup extends React.Component {
   }
 
   render() {
-    console.log('iiimmmsmsm ', this.props.image);
-
     return (
       <div>
-        <button className='settings-btn' onClick={() => this.toggle()} title="Settings">
+        <button
+          className='settings-btn'
+          onClick={() => this.toggle()}
+          title='Settings'
+        >
           <img src={settingIcon} alt='settings' />
         </button>
 
@@ -66,16 +68,16 @@ class ImagePopup extends React.Component {
             className='popup-menu'
             style={{ visibility: this.state.isOpen ? 'visible' : 'hidden' }}
           >
-            <div className='modal-header-btn'>
+            <div className='popup-header-btn'>
               <button
-                className='modal-image-btn'
+                className='popup-image-btn'
                 onClick={() => this.isOptionChangedToggle()}
               >
                 Image
               </button>
 
               <button
-                className='modal-filter-btn'
+                className='popup-filter-btn'
                 onClick={() => this.isOptionChangedToggle()}
               >
                 Filter
@@ -83,7 +85,7 @@ class ImagePopup extends React.Component {
               <hr />
             </div>
 
-            <div className='modal-layout'>
+            <div className='popup-layout'>
               <div className='preview-image-filter'>
                 <img
                   className='preview-image'
@@ -99,16 +101,9 @@ class ImagePopup extends React.Component {
                   display: !this.state.isOptionChanged ? 'block' : 'none',
                 }}
               >
-                {/* <div className='preview-image-filter'>
-                <img
-                  className='preview-image'
-                  src={this.props.image.img}
-                  style={{ filter: this.props.getImageStyle(this.props.image) }}
-                  alt=''
-                />
-              </div> */}
+                {/* change image button */}
                 <button
-                  className='modal-change-img-btn'
+                  className='popup-change-img-btn'
                   onClick={() => this.setState({ isPopupOpen: true })}
                 >
                   Change Image

@@ -1,12 +1,12 @@
-.modal-layout {
+.popup-layout {
   margin: 0%;
   padding: 0%;
 }
 
-.modal-image-btn,
-.modal-filter-btn,
-.modal-change-img-btn,
-.modal-close-btn {
+.popup-image-btn,
+.popup-filter-btn,
+.popup-change-img-btn,
+.popup-close-btn {
   border: none;
   outline-style: none;
   padding: 4px;
@@ -15,14 +15,14 @@
   border-radius: 10px;
 }
 
-.modal-change-img-btn {
+.popup-change-img-btn {
   margin-top: 12px;
   width: 170px;
   color: #03d3fc;
   font-size: medium;
 }
 
-.modal-close-btn {
+.popup-close-btn {
   background-color: #ffffff;
   outline-style: none;
   border: none;
@@ -37,10 +37,10 @@
   right: 0;
 }
 
-.modal-image-btn:hover,
-.modal-filter-btn:hover,
-.modal-close-btn:hover,
-.modal-change-img-btn:hover {
+.popup-image-btn:hover,
+.popup-filter-btn:hover,
+.popup-close-btn:hover,
+.popup-change-img-btn:hover {
   background-color: bisque;
 }
 
@@ -65,8 +65,8 @@
   width: 80%;
 }
 
-/* image list modal styles */
-.image-list-modal {
+/* image list popup styles */
+.image-list-popup {
   z-index: 1;
   margin: 4px;
   padding: 2px;
@@ -98,7 +98,7 @@
 }
 
 /* change image popup btn styles */
-.imagelist-modal-actionBtn {
+.imagelist-popup-actionBtn {
   text-align: center;
   justify-content: center;
 }

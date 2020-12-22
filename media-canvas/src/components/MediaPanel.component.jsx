@@ -9,7 +9,6 @@ import { addImageToCanvas } from '../redux/actions/imageActions';
 // drag functionality
 const imageSource = {
   beginDrag(props) {
-    console.log('dragging');
     return props.image;
   },
 

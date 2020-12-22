@@ -48,14 +48,14 @@ const imageTarget = {
     // When dragging downwards, only move when the cursor is below 50%
     // When dragging upwards, only move when the cursor is above 50%
     // Dragging downwards
-    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-      return;
-    }
+    // if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+    //   return;
+    // }
 
     // Dragging upwards
-    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-      return;
-    }
+    // if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+    //   return;
+    // }
 
     // Time to actually perform the action
     props.updateNewOrder(dragIndex, hoverIndex);
@@ -84,15 +84,15 @@ class CanvasImage extends React.Component {
       connectDragSource,
       connectDropTarget,
     } = this.props;
-    const opacity = isDragging ? 0 : 2;
+    const opacity = isDragging ? 0 : 1;
 
     const IMAGE_STYLES = {
-          filter: this.props.getImageStyle(image),
-          opacity,
-          width: '333px',
-          height: '250px',
-          borderRadius: '10px',
-        };
+      filter: this.props.getImageStyle(image),
+      opacity,
+      width: '333px',
+      height: '250px',
+      borderRadius: '10px',
+    };
 
     return (
       connectDragSource &&
@@ -100,11 +100,7 @@ class CanvasImage extends React.Component {
       connectDragSource(
         connectDropTarget(
           <div className='images'>
-            <img
-              src={image.img}
-              alt={image.name}
-              style={IMAGE_STYLES}
-            />
+            <img src={image.img} alt={image.name} style={IMAGE_STYLES} />
           </div>
         )
       )

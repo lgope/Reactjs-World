@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDom from 'react-dom';
 
+// popup detect out side click
 import Popup from './Popup.component';
-// import './modal.styles.css';
 
 // redux stuff
 import { connect } from 'react-redux';
@@ -53,7 +53,7 @@ const ImageListPopup = props => {
     setNewImage(null);
     props.onClose();
   };
-  
+
   const { open } = props;
   if (!open) return null;
   return ReactDom.createPortal(
@@ -78,11 +78,11 @@ const ImageListPopup = props => {
                 ))}
             </div>
 
-            <div className='imagelist-modal-actionBtn'>
+            <div className='imagelist-popup-actionBtn'>
               <button className='img-confirm-btn' onClick={handleConfirm}>
                 Confirm
               </button>
-              {/* should clear state */}
+              {/* clear state and close the popup */}
               <button className='img-cancel-btn' onClick={handleCancel}>
                 Cancel
               </button>
