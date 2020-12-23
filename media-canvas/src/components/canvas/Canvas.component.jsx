@@ -2,8 +2,8 @@ import React from 'react';
 import { DropTarget } from 'react-dnd';
 
 // icons
-import imageIcon from '../../asstes/image_icon.png';
-import deleteIcon from '../../asstes/delete.png';
+import imageIcon from '../../images/image_icon.png';
+import deleteIcon from '../../images/delete.png';
 
 // components
 import CanvasImage from './CanvasImage.component';
@@ -70,7 +70,7 @@ const Canvas = React.forwardRef(
           </div>
         )}
 
-        {/* showing drop field in middle of the canvas */}
+        {/* showing drop field in middle of the canvas when canvas is empty */}
         {selectedImages && selectedImages.length < 1 && (
           <div
             className='middle-drop-field'

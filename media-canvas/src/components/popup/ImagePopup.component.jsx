@@ -13,7 +13,7 @@ import { filterImage, getImageStyle } from '../../redux/actions/imageActions';
 import Slider from '../filter/Slider';
 
 // icons
-import settingIcon from '../../asstes/settingss.png';
+import settingIcon from '../../images/settingss.png';
 
 const ImagePopup = props => {
   const [isOpen, setIsOpen] = useState(false);

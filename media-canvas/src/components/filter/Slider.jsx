@@ -2,10 +2,10 @@ import React from 'react';
 import './slider.styles.css';
 
 // icons
-import saturation from '../../asstes/saturation.png';
-import blur from '../../asstes/blur-option.png';
-import brightness from '../../asstes/brightnessIcon.png';
-import contrast from '../../asstes/contrast.png';
+import saturation from '../../images/saturation.png';
+import blur from '../../images/blur-option.png';
+import brightness from '../../images/brightnessIcon.png';
+import contrast from '../../images/contrast.png';
 
 const icons = [saturation, blur, brightness, contrast];
 
