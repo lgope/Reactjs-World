@@ -24,7 +24,6 @@ const imageSource = {
 const imageTarget = {
   hover(props, monitor, component) {
     const dragIndex = monitor.getItem().index;
-    // console.log('di ', dragIndex);
     const hoverIndex = props.index;
 
     // Don't replace items with themselves
