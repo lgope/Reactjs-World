@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/react": "^11.2.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "immutability-helper": "^2.9.1",
     "react": "^16.14.0",
     "react-dnd": "^4.0.5",

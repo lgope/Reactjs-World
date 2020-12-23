@@ -59,13 +59,14 @@ const ImagePopup = props => {
           style={{ visibility: isOpen ? 'visible' : 'hidden' }}
         >
           <div className='popup-header-btn'>
-            <button className='popup-image-btn' onClick={isOptionChangedToggle}>
+            <button className='popup-image-btn' onClick={isOptionChangedToggle} style={{backgroundColor: !isOptionChanged ? 'bisque' : 'white'}}>
               Image
             </button>
 
             <button
               className='popup-filter-btn'
               onClick={isOptionChangedToggle}
+              style={{backgroundColor: isOptionChanged ? 'bisque' : 'white'}}
             >
               Filter
             </button>

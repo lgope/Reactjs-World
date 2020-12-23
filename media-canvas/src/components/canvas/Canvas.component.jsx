@@ -22,6 +22,7 @@ function collect(connect, monitor) {
   };
 }
 
+// here forwardRef used to avoid Warning: Function components cannot be given refs. alert from web
 const Canvas = React.forwardRef(
   (
     { connectDropTarget, hovered, selectedImages, deleteImageFromCanvas },
