@@ -1,8 +1,5 @@
 import React, { useRef } from 'react';
-import {
-  useDrag,
-  useDrop
-} from 'react-dnd';
+import { useDrag, useDrop } from 'react-dnd';
 
 const style = {
   border: '1px dashed gray',
@@ -44,6 +41,8 @@ const Card = ({ id, text, index, moveCard }) => {
 
       // Get pixels to the top
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+      // Get pixels to the right
       const hoverClientX = hoverMiddleX.x - hoverBoundingRect.right;
 
       // Only perform the move when the mouse has crossed half of the items height
@@ -55,6 +54,7 @@ const Card = ({ id, text, index, moveCard }) => {
         return;
       }
 
+      // Dragging rightwards
       if (dragIndex < hoverIndex && hoverClientX < hoverMiddleX) {
         return;
       }
@@ -63,6 +63,8 @@ const Card = ({ id, text, index, moveCard }) => {
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
+
+      // Dragging leftwards
       if (dragIndex > hoverIndex && hoverClientX > hoverMiddleX) {
         return;
       }

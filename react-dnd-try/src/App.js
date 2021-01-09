@@ -11,4 +11,3 @@ function App() {
 }
 
 export default App;
-// export default DragDropContext(HTML5Backend)(App);
