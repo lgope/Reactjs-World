@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { findDOMNode } from 'react-dom';
+
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 
@@ -24,7 +24,6 @@ const imageSource = {
 const imageTarget = {
   hover(props, monitor, component) {
     const dragIndex = monitor.getItem().index;
-    // console.log('di ', dragIndex);
     const hoverIndex = props.index;
 
     // Don't replace items with themselves
