@@ -17,7 +17,7 @@
     "chalk": "^4.0.0",
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "universal-config": "^0.3.0",
     "unsplash-js": "^6.0.0"
   },
