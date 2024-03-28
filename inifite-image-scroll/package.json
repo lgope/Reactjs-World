@@ -16,7 +16,7 @@
     "babel-register": "^6.26.0",
     "chalk": "^4.0.0",
     "concurrently": "^5.2.0",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "node-fetch": "^3.1.1",
     "universal-config": "^0.3.0",
     "unsplash-js": "^6.0.0"
